@@ -13,6 +13,7 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
 
     this.addUser = this.addUser.bind(this);
     this.addMultipleUser = this.addMultipleUser.bind(this);
+    this.removeTheFirstUser = this.removeTheFirstUser.bind(this);
 
     this.state = {
       counter: 0
@@ -23,7 +24,8 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
     return (
       <div>
         <button onClick={() => this.addUser()}>Add User</button>
-        <button onClick={() => this.addMultipleUser()}>Add User</button>
+        <button onClick={() => this.addMultipleUser()}>Add Users</button>
+        <button onClick={() => this.removeTheFirstUser()}>Remove First User</button>
         {this.props.users.map((user: User) => (
           <div key={user.id}>{user.firstName}</div>
         ))}
@@ -55,7 +57,7 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
       phone: '1234567890',
       role: 'admin'
     }, {
-      id: this.state.counter,
+      id: this.state.counter + 1,
       firstName: 'ijkl',
       lastName: 'mnop',
       email: 'ijkl@gmail.com',
@@ -66,6 +68,10 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
       ...this.state,
       counter: this.state.counter + 2
     });
+  }
+
+  private removeTheFirstUser() {
+    this.props.removeFirstUser(this.props.users[0].id, this.props.users[0].firstName);
   }
 }
 

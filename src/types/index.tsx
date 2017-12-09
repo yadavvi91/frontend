@@ -1,4 +1,4 @@
-import { ADD_USER, ADD_USERS, LIST_USERS } from '../constants';
+import { ADD_USER, ADD_USERS, LIST_USERS, REMOVE_USERS } from '../constants';
 
 export interface User {
   id: number;
@@ -16,5 +16,6 @@ export interface StoreState {
 export type ListUsersAction = {type: typeof LIST_USERS};
 export type AddUserAction = {type: typeof ADD_USER, payload: User};
 export type AddUsersAction = {type: typeof ADD_USERS, payload: Array<User>};
+export type RemoveUsersAction = {type: typeof REMOVE_USERS, id: number, firstName?: string};
 
-export type Actions = ListUsersAction | AddUserAction | AddUsersAction;
+export type Actions = ListUsersAction | AddUserAction | AddUsersAction | RemoveUsersAction;

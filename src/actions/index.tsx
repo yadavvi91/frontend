@@ -1,5 +1,5 @@
 import * as constants from '../constants/index';
-import { AddUserAction, AddUsersAction, ListUsersAction, User } from '../types';
+import {AddUserAction, AddUsersAction, ListUsersAction, RemoveUsersAction, User} from '../types';
 
 export function listUsers(): ListUsersAction {
   return {
@@ -18,5 +18,13 @@ export function addUsers(payload: Array<User>): AddUsersAction {
   return {
     type: constants.ADD_USERS,
     payload
+  };
+}
+
+export function removeFirstUser(id: number, firstName: string): RemoveUsersAction {
+  return {
+    type: constants.REMOVE_USERS,
+    id,
+    firstName
   };
 }
