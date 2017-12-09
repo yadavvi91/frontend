@@ -1,11 +1,22 @@
 import * as constants from '../constants/index';
+import { AddUserAction, AddUsersAction, ListUsersAction, User } from '../types';
 
-export interface ListUsersAction {
-  type: constants.LIST_USERS;
+export function listUsers(): ListUsersAction {
+  return {
+    type: constants.LIST_USERS
+  };
 }
 
-export interface AddUsersAction {
-  type: constants.LIST_USERS;
+export function addUser(payload: User): AddUserAction {
+  return {
+    type: constants.ADD_USER,
+    payload
+  };
 }
 
-export type UsersAction = ListUsersAction | AddUsersAction;
+export function addUsers(payload: Array<User>): AddUsersAction {
+  return {
+    type: constants.ADD_USERS,
+    payload
+  };
+}
