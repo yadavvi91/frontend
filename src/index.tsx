@@ -7,27 +7,32 @@ import { StoreState } from './types';
 import { listUsers } from './reducers';
 import { Provider } from 'react-redux';
 import ListUsers from './containers/ListUsers';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore<StoreState>(listUsers, {
-  'users': [
-    {
-      'id': 0,
-      'firstName': 'Aniyah',
-      'lastName': 'Luettgen',
-      'phone': '861-332-5113',
-      'email': 'Danika.Ryan84@yahoo.com',
-      'role': 'admin'
-    },
-    {
-      'id': 1,
-      'firstName': 'Alisa',
-      'lastName': 'Pacocha',
-      'phone': '085-056-3901',
-      'email': 'Eusebio68@yahoo.com',
-      'role': 'admin'
-    }
-  ]
-});
+const store = createStore<StoreState>(
+  listUsers,
+  {
+    'users': [
+      {
+        'id': 0,
+        'firstName': 'Aniyah',
+        'lastName': 'Luettgen',
+        'phone': '861-332-5113',
+        'email': 'Danika.Ryan84@yahoo.com',
+        'role': 'admin'
+      },
+      {
+        'id': 1,
+        'firstName': 'Alisa',
+        'lastName': 'Pacocha',
+        'phone': '085-056-3901',
+        'email': 'Eusebio68@yahoo.com',
+        'role': 'admin'
+      }
+    ]
+  },
+  composeWithDevTools()
+);
 
 ReactDOM.render(
   <Provider store={store}>
