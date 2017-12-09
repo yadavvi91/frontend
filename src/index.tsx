@@ -1,13 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
-import './index.css';
 import { createStore } from 'redux';
 import { StoreState } from './types';
 import { listUsers } from './reducers';
 import { Provider } from 'react-redux';
-import ListUsers from './containers/ListUsers';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import registerServiceWorker from './registerServiceWorker';
+import './index.css';
+import ListUsers from './containers/ListUsers';
+import EditUsers from './components/EditUsers';
 
 const store = createStore<StoreState>(
   listUsers,
@@ -36,7 +38,12 @@ const store = createStore<StoreState>(
 
 ReactDOM.render(
   <Provider store={store}>
-    <ListUsers/>
+    <Router>
+      <div>
+        <Route exact={true} path="/" component={ListUsers} />
+        <Route path="/edit/:id(\d+)" component={EditUsers} />
+      </div>
+    </Router>
   </Provider>,
   document.getElementById('root') as HTMLElement
 );

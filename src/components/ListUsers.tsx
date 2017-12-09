@@ -17,6 +17,7 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
     this.addUser = this.addUser.bind(this);
     this.addMultipleUser = this.addMultipleUser.bind(this);
     this.removeTheFirstUser = this.removeTheFirstUser.bind(this);
+    this.editUser = this.editUser.bind(this);
 
     this.state = {
       counter: this.props.users.length > 1 ? this.props.users[this.props.users.length - 1].id + 1 : 0
@@ -36,7 +37,11 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
           </div>
         </div>
         {this.props.users.map((user: User) => (
-          <div key={user.id} className="user-info">
+          <div
+            key={user.id}
+            className="user-info"
+            onClick={() => this.editUser(user.id)}
+          >
             <div className="avatar"><img src={avatar}/></div>
             <div className="details">
               <div className="name">{`${user.firstName} ${user.lastName}`}</div>
@@ -90,6 +95,10 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
 
   private removeTheFirstUser() {
     this.props.removeFirstUser(this.props.users[0].id, this.props.users[0].firstName);
+  }
+
+  private editUser(id: number) {
+    console.log(id);
   }
 }
 
