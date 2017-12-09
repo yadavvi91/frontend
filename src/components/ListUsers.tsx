@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { DispatchProps, ListUsersProps } from '../containers/ListUsers';
 import { User } from '../types';
+import './ListUsers.css';
+
+const avatar = require('../images/ic_face_black_48dp_1x.png');
 
 interface ListState {
   counter: number;
@@ -22,12 +25,27 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
 
   render() {
     return (
-      <div>
-        <button onClick={() => this.addUser()}>Add User</button>
+      <div className="main">
         <button onClick={() => this.addMultipleUser()}>Add Users</button>
         <button onClick={() => this.removeTheFirstUser()}>Remove First User</button>
+        <div className="header">
+          <button className="button" onClick={() => this.addUser()}>Add User</button>
+          <div className="title">Team members</div>
+          <div className="subtitle">
+            {`You have ${this.props.users.length} team members.`}
+          </div>
+        </div>
         {this.props.users.map((user: User) => (
-          <div key={user.id}>{user.firstName}</div>
+          <div key={user.id} className="user-info">
+            <div className="avatar"><img src={avatar}/></div>
+            <div className="details">
+              <div className="name">{`${user.firstName} ${user.lastName}`}</div>
+              <br />
+              {user.phone}
+              <br />
+              {user.email}
+            </div>
+          </div>
         ))}
       </div>
     );

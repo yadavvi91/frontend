@@ -1,0 +1,46 @@
+.main {
+  max-width: 350px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.header .button {
+  width: 80px;
+  /*display: inline-flex;
+  justify-content: flex-end;*/
+}
+
+.header .title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header .subtitle {
+  font-size: 14px;
+}
+
+.user-info {
+  display: flex;
+  border-top: 1px solid lightgrey;
+  padding: 10px;
+}
+
+.user-info:last-child {
+  border-bottom: 1px solid lightgrey;
+}
+
+.user-info .avatar {
+  width: 20%;
+}
+
+.user-info .details {
+  width: 80%;
+}
+
+.user-info .details .name {
+  font-weight: bold;
+}
