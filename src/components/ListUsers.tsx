@@ -16,7 +16,7 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
     this.removeTheFirstUser = this.removeTheFirstUser.bind(this);
 
     this.state = {
-      counter: 0
+      counter: this.props.users.length > 1 ? this.props.users[this.props.users.length - 1].id + 1 : 0
     };
   }
 
