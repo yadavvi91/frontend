@@ -12,7 +12,7 @@ type OwnProps = RouteComponentProps<{ id: number }>;
 
 const mapStateToProps = (state: StoreState, ownProps: OwnProps): StateToPropsType => ({
   id: ownProps.match.params.id,
-  user: state.users.filter((user) => (user.id === ownProps.match.params.id))[0]
+  user: state.users.filter((user) => (user.id === Number(ownProps.match.params.id)))[0]
 });
 
 export default connect(mapStateToProps)(EditUsers);
