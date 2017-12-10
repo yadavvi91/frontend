@@ -1,5 +1,4 @@
 import { connect, Dispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { AddUserAction, AddUsersAction, RemoveUsersAction, StoreState, User } from '../types';
 import ListUsers from '../components/ListUsers';
 import { addUser, addUsers, removeFirstUser } from '../actions';
@@ -28,4 +27,4 @@ export const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   };
 };
 
-export default withRouter(connect<ListUsersProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ListUsers));
+export default connect<ListUsersProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ListUsers);

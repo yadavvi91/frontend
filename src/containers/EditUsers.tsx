@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import EditUsers from '../components/EditUsers';
 import { StoreState, User } from '../types';
 
@@ -15,4 +15,4 @@ const mapStateToProps = (state: StoreState, ownProps: OwnProps): StateToPropsTyp
   user: state.users.filter((user) => (user.id === ownProps.match.params.id))[0]
 });
 
-export default withRouter(connect(mapStateToProps)(EditUsers));
+export default connect(mapStateToProps)(EditUsers);

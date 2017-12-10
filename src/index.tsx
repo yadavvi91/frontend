@@ -4,12 +4,12 @@ import { createStore } from 'redux';
 import { StoreState } from './types';
 import { listUsers } from './reducers';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import ListUsers from './containers/ListUsers';
-import EditUsers from './components/EditUsers';
+import EditUsers from './containers/EditUsers';
 
 const store = createStore<StoreState>(
   listUsers,
@@ -38,12 +38,12 @@ const store = createStore<StoreState>(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <BrowserRouter>
       <div>
         <Route exact={true} path="/" component={ListUsers} />
-        <Route path="/edit/:id(\d+)" component={EditUsers} />
+        <Route path="/edit/:id" component={EditUsers} />
       </div>
-    </Router>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root') as HTMLElement
 );
