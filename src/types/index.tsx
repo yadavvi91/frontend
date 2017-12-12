@@ -51,8 +51,6 @@ export type RoleNameChangedAction = {type: typeof ROLE_NAME_CHANGED, role: strin
 export type SaveEditedUserAction = {type: typeof SAVE_EDITED_USER, id: number};
 export type DeleteUserAction = {type: typeof DELETE_USER, id: number};
 
-export type TopLevelReducerActions = EditUserAction;
-
 export type ListingUserActions = ListUsersAction
   | AddUserAction
   | AddUsersAction
