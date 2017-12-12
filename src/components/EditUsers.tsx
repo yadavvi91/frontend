@@ -107,23 +107,28 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
   }
 
   private firstNameChanged(firstName: string) {
-
+    this.props.firstNameChanged(firstName);
   }
 
   private lastNameChanged(lastName: string) {
-
+    this.props.lastNameChanged(lastName);
   }
 
   private emailChanged(email: string) {
-
+    this.props.emailChanged(email);
   }
 
   private phoneChanged(phone: string) {
-
+    this.props.phoneNumberChanged(phone);
   }
 
   private checkBoxChanged(isChecked: string, type: string) {
     console.log('isChecked: ' + isChecked + ', type: ' + type);
+    if (type === 'admin') {
+      this.props.roleNameChanged('admin');
+    } else if (type === 'regular') {
+      this.props.roleNameChanged('regular');
+    }
   }
 }
 
