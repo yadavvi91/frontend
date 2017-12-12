@@ -22,12 +22,14 @@ import {
   saveEditedUser
 } from '../actions';
 
+
+type OwnProps = RouteComponentProps<{ id: number }>;
+
 export interface StateToPropsType {
   id: number;
   user?: User;
+  routerProps: OwnProps;
 }
-
-type OwnProps = RouteComponentProps<{ id: number }>;
 
 export interface EditUserDispatchProps {
   firstNameChanged(firstName: string): FirstNameChangedAction;
@@ -35,13 +37,14 @@ export interface EditUserDispatchProps {
   emailChanged(email: string): EmailChangedAction;
   phoneNumberChanged(phone: string): PhoneNumberChangedAction;
   roleNameChanged(role: string): RoleNameChangedAction;
-  saveEditedUser(id: number): SaveEditedUserAction;
-  deleteUser(id: number): DeleteUserAction;
+  saveEditedUser(user: User): SaveEditedUserAction;
+  deleteUser(user: User): DeleteUserAction;
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps): StateToPropsType => ({
   id: ownProps.match.params.id,
-  user: state.editUsersState.editUser
+  user: state.editUsersState.editUser,
+  routerProps: ownProps
 });
 
 export const mapDispatchToProps = (dispatch: Dispatch<EditUserDispatchProps>) => {
@@ -51,8 +54,8 @@ export const mapDispatchToProps = (dispatch: Dispatch<EditUserDispatchProps>) =>
     emailChanged: (email: string) => dispatch(emailChanged(email)),
     phoneNumberChanged: (phone: string) => dispatch(phoneNumberChanged(phone)),
     roleNameChanged: (role: string) => dispatch(roleNameChanged(role)),
-    saveEditedUser: (id: number) => dispatch(saveEditedUser(id)),
-    deleteUser: (id: number) => dispatch(deleteUser(id))
+    saveEditedUser: (user: User) => dispatch(saveEditedUser(user)),
+    deleteUser: (user: User) => dispatch(deleteUser(user))
   };
 };
 

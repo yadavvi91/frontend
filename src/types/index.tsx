@@ -42,8 +42,8 @@ export type AddUserAction = {type: typeof ADD_USER, payload: User};
 export type AddUsersAction = {type: typeof ADD_USERS, payload: Array<User>};
 export type RemoveUsersAction = {type: typeof REMOVE_USERS, id: number, firstName?: string};
 export type EditUserAction = {type: typeof EDIT_USER, user: User};
-export type SaveEditedUserAction = {type: typeof SAVE_EDITED_USER, id: number};
-export type DeleteUserAction = {type: typeof DELETE_USER, id: number};
+export type SaveEditedUserAction = {type: typeof SAVE_EDITED_USER, user: User};
+export type DeleteUserAction = {type: typeof DELETE_USER, user: User};
 
 export type FirstNameChangedAction = {type: typeof FIRST_NAME_CHANGED, firstName: string};
 export type LastNameChangedAction = {type: typeof LAST_NAME_CHANGED, lastName: string};

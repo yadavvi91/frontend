@@ -42,7 +42,10 @@ export const listUsers = (state: ListUsersState = initialState, action: ListingU
         users: action.id === undefined ? [...state.users] : state.users.filter((user) => user.id !== action.id)
       };
     case SAVE_EDITED_USER:
-      return state;
+      return {
+        ...state,
+        users: state.users.map((user) => (user.id !== action.user.id ? user : action.user))
+      };
     case DELETE_USER:
       return state;
     default:

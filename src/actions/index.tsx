@@ -85,16 +85,16 @@ export function roleNameChanged(role: string): RoleNameChangedAction {
   };
 }
 
-export function saveEditedUser(id: number): SaveEditedUserAction {
+export function saveEditedUser(user: User): SaveEditedUserAction {
   return {
     type: constants.SAVE_EDITED_USER,
-    id
+    user
   };
 }
 
-export function deleteUser(id: number): DeleteUserAction {
+export function deleteUser(user: User): DeleteUserAction {
   return {
     type: constants.DELETE_USER,
-    id
+    user
   };
 }

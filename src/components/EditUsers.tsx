@@ -99,7 +99,10 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
   }
 
   private saveEditedUser() {
-
+    if (this.props.user !== undefined) {
+      this.props.saveEditedUser(this.props.user);
+      this.props.routerProps.history.push(``);
+    }
   }
 
   private deleteUser() {
