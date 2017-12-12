@@ -1,5 +1,5 @@
 import { ListingUserActions, ListUserState } from '../types';
-import { ADD_USER, ADD_USERS, LIST_USERS, REMOVE_USERS } from '../constants';
+import { ADD_USER, ADD_USERS, EDIT_USER, LIST_USERS, REMOVE_USERS } from '../constants';
 
 const initialState = {
   'users': [
@@ -41,6 +41,8 @@ export const listUsers = (state: ListUserState = initialState, action: ListingUs
         ...state,
         users: action.id === undefined ? [...state.users] : state.users.filter((user) => user.id !== action.id)
       };
+    case EDIT_USER:
+      return state;
     default:
       return state;
   }

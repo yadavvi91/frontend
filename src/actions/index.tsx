@@ -2,6 +2,7 @@ import * as constants from '../constants/index';
 import {
   AddUserAction,
   AddUsersAction,
+  EditUserAction,
   FirstNameChangedAction,
   LastNameChangedAction,
   EmailChangedAction,
@@ -39,6 +40,13 @@ export function removeFirstUser(id: number, firstName: string): RemoveUsersActio
     type: constants.REMOVE_USERS,
     id,
     firstName
+  };
+}
+
+export function editUser(id: number): EditUserAction {
+  return {
+    type: constants.EDIT_USER,
+    id
   };
 }
 

@@ -1,15 +1,16 @@
 import {
   ADD_USER,
   ADD_USERS,
-  DELETE_USER,
+  EDIT_USER,
   FIRST_NAME_CHANGED,
   LAST_NAME_CHANGED,
   EMAIL_CHANGED,
   LIST_USERS,
   PHONE_NUMBER_CHANGED,
   ROLE_NAME_CHANGED,
-  REMOVE_USERS,
-  SAVE_EDITED_USER
+  SAVE_EDITED_USER,
+  DELETE_USER,
+  REMOVE_USERS
 } from '../constants';
 
 export interface User {
@@ -40,6 +41,8 @@ export type ListUsersAction = {type: typeof LIST_USERS};
 export type AddUserAction = {type: typeof ADD_USER, payload: User};
 export type AddUsersAction = {type: typeof ADD_USERS, payload: Array<User>};
 export type RemoveUsersAction = {type: typeof REMOVE_USERS, id: number, firstName?: string};
+export type EditUserAction = {type: typeof EDIT_USER, id: number};
+
 export type FirstNameChangedAction = {type: typeof FIRST_NAME_CHANGED, firstName: string};
 export type LastNameChangedAction = {type: typeof LAST_NAME_CHANGED, lastName: string};
 export type EmailChangedAction = {type: typeof EMAIL_CHANGED, email: string};
@@ -51,7 +54,8 @@ export type DeleteUserAction = {type: typeof DELETE_USER, id: number};
 export type ListingUserActions = ListUsersAction
   | AddUserAction
   | AddUsersAction
-  | RemoveUsersAction;
+  | RemoveUsersAction
+  | EditUserAction;
 
 export type EditingUserActions = FirstNameChangedAction
   | LastNameChangedAction
