@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { combineReducers, createStore } from 'redux';
 import { RootState } from './types';
-import { listUsers } from './reducers/ListUsersReducers';
+import { listUsers } from './reducers/ListUsersReducer';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
