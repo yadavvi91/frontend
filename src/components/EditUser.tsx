@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { EditUserDispatchProps, StateToPropsType } from '../containers/EditUsers';
+import { EditUserDispatchProps, StateToPropsType } from '../containers/EditUser';
 
-class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps> {
+class EditUser extends React.Component<StateToPropsType & EditUserDispatchProps> {
 
   constructor(props: StateToPropsType & EditUserDispatchProps) {
     super(props);
@@ -26,6 +26,10 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
         className="main user-info-vertical"
       >
         <div className="details">
+          <div>
+            <h4>Edit team member</h4>
+            {'Edit contact info, location and role'}
+          </div>
           <div>
             {'Info'}
             <input
@@ -61,7 +65,7 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
         <div>
           {'Role'}
           <div>
-            {'alallalalallala alallala'}
+            {'Regular - Can\'t delete members'}
             <input
               id="regular"
               type="checkbox"
@@ -70,7 +74,7 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
             />
           </div>
           <div>
-            {'alallalalallala alallala'}
+            {'Admin - Can delete members'}
             <input
               id="admin"
               type="checkbox"
@@ -138,4 +142,4 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
   }
 }
 
-export default EditUsers;
+export default EditUser;

@@ -34,12 +34,12 @@ export interface EditUserState {
 
 export interface RootState extends StoreState {
   listUsersState: ListUsersState;
-  editUsersState: EditUserState;
+  editUserState: EditUserState;
 }
 
 export type ListUsersAction = {type: typeof LIST_USERS};
-export type AddUserAction = {type: typeof ADD_USER, payload: User};
-export type AddUsersAction = {type: typeof ADD_USERS, payload: Array<User>};
+export type AddUserAction = {type: typeof ADD_USER, user: User};
+export type AddUsersAction = {type: typeof ADD_USERS, users: Array<User>};
 export type RemoveUsersAction = {type: typeof REMOVE_USERS, id: number, firstName?: string};
 export type EditUserAction = {type: typeof EDIT_USER, user: User};
 export type SaveEditedUserAction = {type: typeof SAVE_EDITED_USER, user: User};

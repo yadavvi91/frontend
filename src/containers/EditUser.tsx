@@ -1,6 +1,6 @@
 import { connect, Dispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
-import EditUsers from '../components/EditUsers';
+import EditUser from '../components/EditUser';
 import {
   User,
   RootState,
@@ -22,7 +22,6 @@ import {
   saveEditedUser
 } from '../actions';
 
-
 type OwnProps = RouteComponentProps<{ id: number }>;
 
 export interface StateToPropsType {
@@ -43,7 +42,7 @@ export interface EditUserDispatchProps {
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps): StateToPropsType => ({
   id: ownProps.match.params.id,
-  user: state.editUsersState.editUser,
+  user: state.editUserState.editUser,
   routerProps: ownProps
 });
 
@@ -59,4 +58,4 @@ export const mapDispatchToProps = (dispatch: Dispatch<EditUserDispatchProps>) =>
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditUsers);
+export default connect(mapStateToProps, mapDispatchToProps)(EditUser);

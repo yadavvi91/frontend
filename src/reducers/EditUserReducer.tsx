@@ -11,7 +11,7 @@ import {
 const initialState = {
 };
 
-export const editUsers = (state: EditUserState = initialState, action: EditingUserActions): EditUserState => {
+export const editUser = (state: EditUserState = initialState, action: EditingUserActions): EditUserState => {
   switch (action.type) {
     case EDIT_USER:
       return {

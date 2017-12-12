@@ -9,13 +9,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import ListUsers from './containers/ListUsers';
-import EditUsers from './containers/EditUsers';
-import { editUsers } from './reducers/EditUserReducer';
+import EditUsers from './containers/EditUser';
+import { editUser } from './reducers/EditUserReducer';
 
 const store = createStore<RootState>(
   combineReducers({
     listUsersState: listUsers,
-    editUsersState: editUsers
+    editUserState: editUser
   }),
   composeWithDevTools()
 );

@@ -1,5 +1,12 @@
 import { ListingUserActions, ListUsersState } from '../types';
-import {ADD_USER, ADD_USERS, DELETE_USER, LIST_USERS, REMOVE_USERS, SAVE_EDITED_USER} from '../constants';
+import {
+  ADD_USER,
+  ADD_USERS,
+  DELETE_USER,
+  LIST_USERS,
+  REMOVE_USERS,
+  SAVE_EDITED_USER
+} from '../constants';
 
 const initialState = {
   'users': [
@@ -29,12 +36,12 @@ export const listUsers = (state: ListUsersState = initialState, action: ListingU
     case ADD_USER:
       return {
         ...state,
-        users: action.payload === undefined ? [...state.users] : [...state.users, action.payload]
+        users: action.user === undefined ? [...state.users] : [...state.users, action.user]
       };
     case ADD_USERS:
       return {
         ...state,
-        users: action.payload === undefined ? [...state.users] : [...state.users, ...action.payload]
+        users: action.users === undefined ? [...state.users] : [...state.users, ...action.users]
       };
     case REMOVE_USERS:
       return {

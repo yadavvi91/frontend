@@ -21,17 +21,17 @@ export function listUsers(): ListUsersAction {
   };
 }
 
-export function addUser(payload: User): AddUserAction {
+export function addUser(user: User): AddUserAction {
   return {
     type: constants.ADD_USER,
-    payload
+    user
   };
 }
 
-export function addUsers(payload: Array<User>): AddUsersAction {
+export function addUsers(users: Array<User>): AddUsersAction {
   return {
     type: constants.ADD_USERS,
-    payload
+    users
   };
 }
 
