@@ -47,7 +47,10 @@ export const listUsers = (state: ListUsersState = initialState, action: ListingU
         users: state.users.map((user) => (user.id !== action.user.id ? user : action.user))
       };
     case DELETE_USER:
-      return state;
+      return {
+        ...state,
+        users: state.users.filter((user) => (user.id !== action.user.id))
+      };
     default:
       return state;
   }

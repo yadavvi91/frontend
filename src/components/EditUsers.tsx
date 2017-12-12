@@ -106,7 +106,10 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
   }
 
   private deleteUser() {
-
+    if (this.props.user !== undefined) {
+      this.props.deleteUser(this.props.user);
+      this.props.routerProps.history.push(``);
+    }
   }
 
   private firstNameChanged(firstName: string) {
