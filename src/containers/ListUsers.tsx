@@ -1,5 +1,5 @@
 import { connect, Dispatch } from 'react-redux';
-import { AddUserAction, AddUsersAction, RemoveUsersAction, ListUserState, User } from '../types';
+import { AddUserAction, AddUsersAction, RemoveUsersAction, User, RootState } from '../types';
 import ListUsers from '../components/ListUsers';
 import { addUser, addUsers, removeFirstUser } from '../actions';
 import { RouteComponentProps } from 'react-router-dom';
@@ -17,10 +17,10 @@ export interface DispatchProps {
   removeFirstUser(id: number, firstName: string): RemoveUsersAction;
 }
 
-export const mapStateToProps = (state: ListUserState, ownProps: OwnProps): ListUsersProps => {
+export const mapStateToProps = (state: RootState, ownProps: OwnProps): ListUsersProps => {
   return {
     routerProps: ownProps,
-    users: state.users
+    users: state.listUsersState.users
   };
 };
 

@@ -20,11 +20,18 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
     this.editUser = this.editUser.bind(this);
 
     this.state = {
-      counter: this.props.users.length > 1 ? this.props.users[this.props.users.length - 1].id + 1 : 0
+      counter: this.props.users === undefined
+        ? 0
+        : this.props.users.length > 1
+          ? this.props.users[this.props.users.length - 1].id + 1
+          : 0
     };
   }
 
   render() {
+    if (this.props.users === undefined) {
+      return <div>No users</div>;
+    }
     return (
       <div className="main">
         <button onClick={() => this.addMultipleUser()}>Add Users</button>

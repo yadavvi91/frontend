@@ -17,6 +17,9 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
 
   render() {
     const user = this.props.user;
+    if (user === undefined) {
+      return <div>Undefined User</div>;
+    }
     return (
       <div
         key={user.id}
@@ -62,7 +65,7 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
             <input
               id="regular"
               type="checkbox"
-              checked={this.props.user.role === 'regular'}
+              checked={user.role === 'regular'}
               onChange={(e) => this.checkBoxChanged(e.target.value, 'regular')}
             />
           </div>
@@ -71,7 +74,7 @@ class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps
             <input
               id="admin"
               type="checkbox"
-              checked={this.props.user.role === 'admin'}
+              checked={user.role === 'admin'}
               onChange={(e) => this.checkBoxChanged(e.target.value, 'admin')}
             />
           </div>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { combineReducers, createStore } from 'redux';
-import { EditUserState, ListUserState } from './types';
-import { listUsers } from './reducers/ListUsers';
+import { RootState } from './types';
+import { listUsers } from './reducers/ListUsersReducers';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -12,9 +12,10 @@ import ListUsers from './containers/ListUsers';
 import EditUsers from './containers/EditUsers';
 import { editUsers } from './reducers/EditUserReducer';
 
-const store = createStore<ListUserState & EditUserState>(
+const store = createStore<RootState>(
   combineReducers({
-    listUsers, editUsers
+    listUsersState: listUsers,
+    editUsersState: editUsers
   }),
   composeWithDevTools()
 );
