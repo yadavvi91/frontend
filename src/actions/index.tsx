@@ -12,7 +12,7 @@ import {
   DeleteUserAction,
   ListUsersAction,
   RemoveUsersAction,
-  SaveUserAction
+  SaveUserAction, DiscardUserAction
 } from '../types';
 
 export function listUsers(): ListUsersAction {
@@ -96,5 +96,11 @@ export function saveUser(user: User): SaveUserAction {
   return {
     type: constants.SAVE_USER,
     user
+  };
+}
+
+export function discardUser(): DiscardUserAction {
+  return {
+    type: constants.DISCARD_USER
   };
 }

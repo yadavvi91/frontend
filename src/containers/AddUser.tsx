@@ -9,9 +9,11 @@ import {
   EmailChangedAction,
   PhoneNumberChangedAction,
   RoleNameChangedAction,
-  SaveUserAction
+  SaveUserAction,
+  DiscardUserAction
 } from '../types';
 import {
+  discardUser,
   emailChanged,
   firstNameChanged,
   lastNameChanged,
@@ -35,6 +37,7 @@ export interface AddUserDispatchProps {
   phoneNumberChanged(phone: string): PhoneNumberChangedAction;
   roleNameChanged(role: string): RoleNameChangedAction;
   saveUser(user: User): SaveUserAction;
+  discardUser(): DiscardUserAction;
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps): StateToPropsType => ({
@@ -51,6 +54,7 @@ export const mapDispatchToProps = (dispatch: Dispatch<AddUserDispatchProps>) => 
     phoneNumberChanged: (phone: string) => dispatch(phoneNumberChanged(phone)),
     roleNameChanged: (role: string) => dispatch(roleNameChanged(role)),
     saveUser: (user: User) => dispatch(saveUser(user)),
+    discardUser: () => dispatch(discardUser()),
   };
 };
 

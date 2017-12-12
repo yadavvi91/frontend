@@ -10,7 +10,8 @@ import {
   SAVE_EDITED_USER,
   DELETE_USER,
   REMOVE_USERS,
-  SAVE_USER
+  SAVE_USER,
+  DISCARD_USER
 } from '../constants';
 
 export interface User {
@@ -57,6 +58,8 @@ export type RoleNameChangedAction = {type: typeof ROLE_NAME_CHANGED, role: strin
 export type AddUserAction = {type: typeof ADD_USER, user: User};
 export type SaveUserAction = {type: typeof SAVE_USER, user: User};
 
+export type DiscardUserAction = {type: typeof DISCARD_USER};
+
 export type ListingUserActions = ListUsersAction
   | RemoveUsersAction
   | SaveEditedUserAction
@@ -75,4 +78,5 @@ export type AddingUserActions = AddUserAction
   | LastNameChangedAction
   | EmailChangedAction
   | PhoneNumberChangedAction
-  | RoleNameChangedAction;
+  | RoleNameChangedAction
+  | DiscardUserAction;

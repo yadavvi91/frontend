@@ -6,6 +6,7 @@ class AddUser extends React.Component<StateToPropsType & AddUserDispatchProps> {
   constructor(props: StateToPropsType & AddUserDispatchProps) {
     super(props);
 
+    this.discardUser = this.discardUser.bind(this);
     this.firstNameChanged = this.firstNameChanged.bind(this);
     this.lastNameChanged = this.lastNameChanged.bind(this);
     this.emailChanged = this.emailChanged.bind(this);
@@ -25,6 +26,7 @@ class AddUser extends React.Component<StateToPropsType & AddUserDispatchProps> {
         className="main user-info-vertical"
       >
         <div className="details">
+          <button className="button" onClick={() => this.discardUser()}>Discard User</button>
           <div>
             <h4>Edit team member</h4>
             {'Edit contact info, location and role'}
@@ -129,6 +131,11 @@ class AddUser extends React.Component<StateToPropsType & AddUserDispatchProps> {
     } else if (type === 'regular') {
       this.props.roleNameChanged('regular');
     }
+  }
+
+  private discardUser() {
+    this.props.routerProps.history.push(``);
+    this.props.discardUser();
   }
 }
 

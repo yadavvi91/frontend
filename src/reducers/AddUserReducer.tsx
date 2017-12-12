@@ -4,7 +4,8 @@ import {
   FIRST_NAME_CHANGED,
   LAST_NAME_CHANGED,
   PHONE_NUMBER_CHANGED,
-  ROLE_NAME_CHANGED
+  ROLE_NAME_CHANGED,
+  DISCARD_USER
 } from '../constants';
 import { AddingUserActions, AddUserState } from '../types';
 
@@ -57,7 +58,13 @@ export const addUser = (state: AddUserState = initialState, action: AddingUserAc
           ...state.addUser,
           role: action.role
         }
-      };    default:
+      };
+    case DISCARD_USER:
+      return {
+        ...state,
+        addUser: undefined
+      };
+    default:
       return state;
   }
 };

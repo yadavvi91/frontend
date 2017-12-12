@@ -36,3 +36,6 @@ export type DELETE_USER = typeof DELETE_USER;
 
 export const SAVE_USER = 'SAVE_USER';
 export type SAVE_USER = typeof SAVE_USER;
+
+export const DISCARD_USER = 'DISCARD_USER';
+export type DISCARD_USER = typeof DISCARD_USER;
