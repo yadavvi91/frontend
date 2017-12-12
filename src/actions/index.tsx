@@ -5,7 +5,7 @@ import {
   DeleteUserAction,
   ListUsersAction,
   RemoveUsersAction,
-  SaveEditedUser,
+  SaveEditedUserAction,
   User
 } from '../types';
 
@@ -37,7 +37,7 @@ export function removeFirstUser(id: number, firstName: string): RemoveUsersActio
   };
 }
 
-export function saveEditedUser(id: number): SaveEditedUser {
+export function saveEditedUser(id: number): SaveEditedUserAction {
   return {
     type: constants.SAVE_EDITED_USER,
     id

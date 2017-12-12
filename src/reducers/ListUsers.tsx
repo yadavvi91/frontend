@@ -1,7 +1,7 @@
-import { Actions, StoreState } from '../types';
+import { ListingUserActions, StoreState} from '../types';
 import { ADD_USER, ADD_USERS, LIST_USERS, REMOVE_USERS } from '../constants';
 
-export const listUsers = (state: StoreState, action: Actions): StoreState => {
+export const listUsers = (state: StoreState, action: ListingUserActions): StoreState => {
   switch (action.type) {
     case LIST_USERS:
       return state;
