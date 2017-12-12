@@ -29,6 +29,29 @@
   padding: 10px;
 }
 
+.user-info-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1px solid lightgrey;
+  padding: 10px;
+}
+
+.edit-info-item {
+  width: 100%;
+  margin: 10px 10px;
+}
+
+.edit-info-item-button {
+  width: 50px;
+}
+
+.edit-item-checkbox {
+  display: flex;
+  flex-direction: row;
+  width: 50px;
+}
+
 .user-info:last-child {
   border-bottom: 1px solid lightgrey;
 }
