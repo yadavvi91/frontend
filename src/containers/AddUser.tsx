@@ -39,7 +39,7 @@ export interface AddUserDispatchProps {
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps): StateToPropsType => ({
   id: ownProps.match.params.id,
-  user: state.editUserState.editUser,
+  user: state.addUserState.addUser,
   routerProps: ownProps
 });
 

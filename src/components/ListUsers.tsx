@@ -64,6 +64,7 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
       phone: '',
       role: 'regular'
     });
+    this.props.routerProps.history.push(`/add/${nextId}`);
   }
 
   private removeTheFirstUser() {

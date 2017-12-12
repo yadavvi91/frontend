@@ -36,6 +36,7 @@ class AddUser extends React.Component<StateToPropsType & AddUserDispatchProps> {
               type="text"
               className="edit-info-item"
               defaultValue={`${user.firstName}`}
+              placeholder={'First Name'}
               onChange={(e) => this.firstNameChanged(e.target.value)}
             />
             <input
@@ -43,6 +44,7 @@ class AddUser extends React.Component<StateToPropsType & AddUserDispatchProps> {
               type="text"
               className="edit-info-item"
               defaultValue={`${user.lastName}`}
+              placeholder={'Last Name'}
               onChange={(e) => this.lastNameChanged(e.target.value)}
             />
             <input
@@ -50,6 +52,7 @@ class AddUser extends React.Component<StateToPropsType & AddUserDispatchProps> {
               type="text"
               className="edit-info-item"
               defaultValue={`${user.email}`}
+              placeholder={'Email ID'}
               onChange={(e) => this.emailChanged(e.target.value)}
             />
             <input
@@ -57,6 +60,7 @@ class AddUser extends React.Component<StateToPropsType & AddUserDispatchProps> {
               type="text"
               className="edit-info-item"
               defaultValue={`${user.phone}`}
+              placeholder={'Phone Number'}
               onChange={(e) => this.phoneChanged(e.target.value)}
             />
           </div>
