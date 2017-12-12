@@ -2,10 +2,15 @@ import * as constants from '../constants/index';
 import {
   AddUserAction,
   AddUsersAction,
+  FirstNameChangedAction,
+  LastNameChangedAction,
+  EmailChangedAction,
+  PhoneNumberChangedAction,
+  RoleNameChangedAction,
+  SaveEditedUserAction,
   DeleteUserAction,
   ListUsersAction,
   RemoveUsersAction,
-  SaveEditedUserAction,
   User
 } from '../types';
 
@@ -34,6 +39,41 @@ export function removeFirstUser(id: number, firstName: string): RemoveUsersActio
     type: constants.REMOVE_USERS,
     id,
     firstName
+  };
+}
+
+export function firstNameChanged(firstName: string): FirstNameChangedAction {
+  return {
+    type: constants.FIRST_NAME_CHANGED,
+    firstName
+  };
+}
+
+export function lastNameChanged(lastName: string): LastNameChangedAction {
+  return {
+    type: constants.LAST_NAME_CHANGED,
+    lastName
+  };
+}
+
+export function emailChanged(email: string): EmailChangedAction {
+  return {
+    type: constants.EMAIL_CHANGED,
+    email
+  };
+}
+
+export function phoneNumberChanged(phone: string): PhoneNumberChangedAction {
+  return {
+    type: constants.PHONE_NUMBER_CHANGED,
+    phone
+  };
+}
+
+export function roleNameChanged(role: string): RoleNameChangedAction {
+  return {
+    type: constants.ROLE_NAME_CHANGED,
+    role
   };
 }
 
