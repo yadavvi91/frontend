@@ -15,17 +15,8 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
     super(props);
 
     this.addUser = this.addUser.bind(this);
-    this.addMultipleUser = this.addMultipleUser.bind(this);
     this.removeTheFirstUser = this.removeTheFirstUser.bind(this);
     this.editUser = this.editUser.bind(this);
-
-    this.state = {
-      counter: this.props.users === undefined
-        ? 0
-        : this.props.users.length > 1
-          ? this.props.users[this.props.users.length - 1].id + 1
-          : 0
-    };
   }
 
   render() {
@@ -34,8 +25,6 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
     }
     return (
       <div className="main">
-        <button onClick={() => this.addMultipleUser()}>Add Users</button>
-        <button onClick={() => this.removeTheFirstUser()}>Remove First User</button>
         <div className="header">
           <button className="button" onClick={() => this.addUser()}>Add User</button>
           <div className="title">Team members</div>
@@ -64,39 +53,16 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
   }
 
   private addUser() {
+    const nextId = (this.props.users === undefined || this.props.users.length === 0)
+      ? 0
+      : this.props.users[this.props.users.length - 1].id + 1;
     this.props.addUser({
-      id: this.state.counter,
-      firstName: 'abcd',
-      lastName: 'efgh',
-      email: 'abcd@gmail.com',
-      phone: '1234567890',
-      role: 'admin'
-    });
-    this.setState({
-      ...this.state,
-      counter: this.state.counter + 1
-    });
-  }
-
-  private addMultipleUser() {
-    this.props.addUsers([{
-      id: this.state.counter,
-      firstName: 'abcd',
-      lastName: 'efgh',
-      email: 'abcd@gmail.com',
-      phone: '1234567890',
-      role: 'admin'
-    }, {
-      id: this.state.counter + 1,
-      firstName: 'ijkl',
-      lastName: 'mnop',
-      email: 'ijkl@gmail.com',
-      phone: '1234567890',
-      role: 'admin'
-    }]);
-    this.setState({
-      ...this.state,
-      counter: this.state.counter + 2
+      id: nextId,
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      role: 'regular'
     });
   }
 

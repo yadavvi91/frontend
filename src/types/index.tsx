@@ -1,6 +1,5 @@
 import {
   ADD_USER,
-  ADD_USERS,
   EDIT_USER,
   FIRST_NAME_CHANGED,
   LAST_NAME_CHANGED,
@@ -10,7 +9,8 @@ import {
   ROLE_NAME_CHANGED,
   SAVE_EDITED_USER,
   DELETE_USER,
-  REMOVE_USERS
+  REMOVE_USERS,
+  SAVE_USER
 } from '../constants';
 
 export interface User {
@@ -32,14 +32,17 @@ export interface EditUserState {
   editUser?: User;
 }
 
+export interface AddUserState {
+  addUser?: User;
+}
+
 export interface RootState extends StoreState {
   listUsersState: ListUsersState;
   editUserState: EditUserState;
+  addUserState: AddUserState;
 }
 
 export type ListUsersAction = {type: typeof LIST_USERS};
-export type AddUserAction = {type: typeof ADD_USER, user: User};
-export type AddUsersAction = {type: typeof ADD_USERS, users: Array<User>};
 export type RemoveUsersAction = {type: typeof REMOVE_USERS, id: number, firstName?: string};
 export type EditUserAction = {type: typeof EDIT_USER, user: User};
 export type SaveEditedUserAction = {type: typeof SAVE_EDITED_USER, user: User};
@@ -51,16 +54,25 @@ export type EmailChangedAction = {type: typeof EMAIL_CHANGED, email: string};
 export type PhoneNumberChangedAction = {type: typeof PHONE_NUMBER_CHANGED, phone: string};
 export type RoleNameChangedAction = {type: typeof ROLE_NAME_CHANGED, role: string};
 
+export type AddUserAction = {type: typeof ADD_USER, user: User};
+export type SaveUserAction = {type: typeof SAVE_USER, user: User};
+
 export type ListingUserActions = ListUsersAction
-  | AddUserAction
-  | AddUsersAction
   | RemoveUsersAction
   | SaveEditedUserAction
-  | DeleteUserAction;
+  | DeleteUserAction
+  | SaveUserAction;
 
-export type EditingUserActions = FirstNameChangedAction
+export type EditingUserActions = EditUserAction
+  | FirstNameChangedAction
   | LastNameChangedAction
   | EmailChangedAction
   | PhoneNumberChangedAction
-  | RoleNameChangedAction
-  | EditUserAction;
+  | RoleNameChangedAction;
+
+export type AddingUserActions = AddUserAction
+  | FirstNameChangedAction
+  | LastNameChangedAction
+  | EmailChangedAction
+  | PhoneNumberChangedAction
+  | RoleNameChangedAction;

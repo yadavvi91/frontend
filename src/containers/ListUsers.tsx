@@ -1,7 +1,7 @@
 import { connect, Dispatch } from 'react-redux';
-import { AddUserAction, AddUsersAction, RemoveUsersAction, User, RootState, EditUserAction } from '../types';
+import { AddUserAction, RemoveUsersAction, User, RootState, EditUserAction } from '../types';
 import ListUsers from '../components/ListUsers';
-import { addUser, addUsers, editUser, removeFirstUser } from '../actions';
+import { addUser, editUser, removeFirstUser } from '../actions';
 import { RouteComponentProps } from 'react-router-dom';
 
 type OwnProps = RouteComponentProps<{}>;
@@ -13,7 +13,6 @@ export interface ListUsersProps {
 
 export interface DispatchProps {
   addUser(user: User): AddUserAction;
-  addUsers(users: Array<User>): AddUsersAction;
   removeFirstUser(id: number, firstName: string): RemoveUsersAction;
   editUser(user: User): EditUserAction;
 }
@@ -28,7 +27,6 @@ export const mapStateToProps = (state: RootState, ownProps: OwnProps): ListUsers
 export const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     addUser: (user: User) => dispatch(addUser(user)),
-    addUsers: (users: Array<User>) => dispatch(addUsers(users)),
     removeFirstUser: (id: number, firstName: string) => dispatch(removeFirstUser(id, firstName)),
     editUser: (user: User) => dispatch(editUser(user))
   };

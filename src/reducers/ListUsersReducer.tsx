@@ -1,11 +1,9 @@
 import { ListingUserActions, ListUsersState } from '../types';
 import {
-  ADD_USER,
-  ADD_USERS,
   DELETE_USER,
   LIST_USERS,
   REMOVE_USERS,
-  SAVE_EDITED_USER
+  SAVE_EDITED_USER, SAVE_USER
 } from '../constants';
 
 const initialState = {
@@ -33,16 +31,6 @@ export const listUsers = (state: ListUsersState = initialState, action: ListingU
   switch (action.type) {
     case LIST_USERS:
       return state;
-    case ADD_USER:
-      return {
-        ...state,
-        users: action.user === undefined ? [...state.users] : [...state.users, action.user]
-      };
-    case ADD_USERS:
-      return {
-        ...state,
-        users: action.users === undefined ? [...state.users] : [...state.users, ...action.users]
-      };
     case REMOVE_USERS:
       return {
         ...state,
@@ -57,6 +45,11 @@ export const listUsers = (state: ListUsersState = initialState, action: ListingU
       return {
         ...state,
         users: state.users.filter((user) => (user.id !== action.user.id))
+      };
+    case SAVE_USER:
+      return {
+        ...state,
+        users: [...state.users, action.user]
       };
     default:
       return state;
