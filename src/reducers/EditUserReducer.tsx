@@ -6,7 +6,7 @@ import {
   PHONE_NUMBER_CHANGED,
   ROLE_NAME_CHANGED,
   SAVE_EDITED_USER,
-  DELETE_USER
+  DELETE_USER, EDIT_USER
 } from '../constants';
 
 const initialState = {
@@ -14,6 +14,11 @@ const initialState = {
 
 export const editUsers = (state: EditUserState = initialState, action: EditingUserActions): EditUserState => {
   switch (action.type) {
+    case EDIT_USER:
+      return {
+        ...state,
+        editUser: action.user
+      };
     case FIRST_NAME_CHANGED:
       return state;
     case LAST_NAME_CHANGED:

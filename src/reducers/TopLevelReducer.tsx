@@ -33,14 +33,7 @@ const initialState = {
 export const topLevelReducer = (state: RootState = initialState, action: TopLevelReducerActions): RootState => {
   switch (action.type) {
     case EDIT_USER:
-      const newState = {
-        ...state,
-        editUsersState: {
-          ...state.editUsersState,
-          editUser: state.listUsersState.users.filter((user) => (user.id === action.id))[0]
-        }
-      };
-      return newState;
+      return state;
     default:
       return state;
   }

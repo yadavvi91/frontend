@@ -43,10 +43,10 @@ export function removeFirstUser(id: number, firstName: string): RemoveUsersActio
   };
 }
 
-export function editUser(id: number): EditUserAction {
+export function editUser(user: User): EditUserAction {
   return {
     type: constants.EDIT_USER,
-    id
+    user
   };
 }
 
