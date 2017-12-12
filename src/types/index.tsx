@@ -21,12 +21,12 @@ export interface User {
   role: string;
 }
 
-export interface StoreState {
+export interface ListUserState {
   users: Array<User>;
 }
 
 export interface EditUserState {
-  editUser: User;
+  editUser?: User;
 }
 
 export type ListUsersAction = {type: typeof LIST_USERS};

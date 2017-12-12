@@ -1,7 +1,28 @@
-import { ListingUserActions, StoreState} from '../types';
+import { ListingUserActions, ListUserState } from '../types';
 import { ADD_USER, ADD_USERS, LIST_USERS, REMOVE_USERS } from '../constants';
 
-export const listUsers = (state: StoreState, action: ListingUserActions): StoreState => {
+const initialState = {
+  'users': [
+    {
+      'id': 0,
+      'firstName': 'Aniyah',
+      'lastName': 'Luettgen',
+      'phone': '861-332-5113',
+      'email': 'Danika.Ryan84@yahoo.com',
+      'role': 'admin'
+    },
+    {
+      'id': 1,
+      'firstName': 'Alisa',
+      'lastName': 'Pacocha',
+      'phone': '085-056-3901',
+      'email': 'Eusebio68@yahoo.com',
+      'role': 'admin'
+    }
+  ]
+};
+
+export const listUsers = (state: ListUserState = initialState, action: ListingUserActions): ListUserState => {
   switch (action.type) {
     case LIST_USERS:
       return state;

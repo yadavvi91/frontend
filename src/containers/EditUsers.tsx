@@ -1,7 +1,7 @@
 import { connect, Dispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import EditUsers from '../components/EditUsers';
-import { DeleteUserAction, SaveEditedUserAction, StoreState, EditUserState, User } from '../types';
+import { DeleteUserAction, SaveEditedUserAction, ListUserState, EditUserState, User } from '../types';
 import { deleteUser, saveEditedUser } from '../actions';
 
 export interface StateToPropsType {
@@ -16,7 +16,7 @@ export interface EditUserDispatchProps {
   deleteUser(id: number): DeleteUserAction;
 }
 
-const mapStateToProps = (state: StoreState & EditUserState, ownProps: OwnProps): StateToPropsType => ({
+const mapStateToProps = (state: ListUserState & EditUserState, ownProps: OwnProps): StateToPropsType => ({
   id: ownProps.match.params.id,
   user: state.users.filter((user) => (user.id === Number(ownProps.match.params.id)))[0]
 });

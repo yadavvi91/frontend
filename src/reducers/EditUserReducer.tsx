@@ -9,7 +9,10 @@ import {
   DELETE_USER
 } from '../constants';
 
-export const editUsers = (state: EditUserState, action: EditingUserActions): EditUserState => {
+const initialState = {
+};
+
+export const editUsers = (state: EditUserState = initialState, action: EditingUserActions): EditUserState => {
   switch (action.type) {
     case FIRST_NAME_CHANGED:
       return state;
