@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { StateToPropsType } from '../containers/EditUsers';
+import { EditUserDispatchProps, StateToPropsType } from '../containers/EditUsers';
 
-class EditUsers extends React.Component<StateToPropsType> {
+class EditUsers extends React.Component<StateToPropsType & EditUserDispatchProps> {
 
-  constructor(props: StateToPropsType) {
+  constructor(props: StateToPropsType & EditUserDispatchProps) {
     super(props);
 
-    this.saveUser = this.saveUser.bind(this);
-    this.deleteUser = this.deleteUser.bind(this);
-    this.nameChange = this.nameChange.bind(this);
-    this.lastNameChange = this.lastNameChange.bind(this);
-    this.emailChange = this.emailChange.bind(this);
-    this.phoneChange = this.phoneChange.bind(this);
+    this.firstNameChanged = this.firstNameChanged.bind(this);
+    this.lastNameChanged = this.lastNameChanged.bind(this);
+    this.emailChanged = this.emailChanged.bind(this);
+    this.phoneChanged = this.phoneChanged.bind(this);
     this.checkBoxChanged = this.checkBoxChanged.bind(this);
+    this.saveEditedUser = this.saveEditedUser.bind(this);
+    this.deleteUser = this.deleteUser.bind(this);
   }
 
   render() {
@@ -30,28 +30,28 @@ class EditUsers extends React.Component<StateToPropsType> {
               type="text"
               className="edit-info-item"
               defaultValue={`${user.firstName}`}
-              onChange={(e) => this.nameChange(e.target.value)}
+              onChange={(e) => this.firstNameChanged(e.target.value)}
             />
             <input
               id={user.id + user.lastName}
               type="text"
               className="edit-info-item"
               defaultValue={`${user.lastName}`}
-              onChange={(e) => this.lastNameChange(e.target.value)}
+              onChange={(e) => this.lastNameChanged(e.target.value)}
             />
             <input
               id={user.id + 'email'}
               type="text"
               className="edit-info-item"
               defaultValue={`${user.email}`}
-              onChange={(e) => this.emailChange(e.target.value)}
+              onChange={(e) => this.emailChanged(e.target.value)}
             />
             <input
               id={user.id + 'phone'}
               type="text"
               className="edit-info-item"
               defaultValue={`${user.phone}`}
-              onChange={(e) => this.phoneChange(e.target.value)}
+              onChange={(e) => this.phoneChanged(e.target.value)}
             />
           </div>
         </div>
@@ -85,7 +85,7 @@ class EditUsers extends React.Component<StateToPropsType> {
           </button>
           <button
             className="edit-info-item-button"
-            onClick={() => this.saveUser()}
+            onClick={() => this.saveEditedUser()}
           >
             Save
           </button>
@@ -95,7 +95,7 @@ class EditUsers extends React.Component<StateToPropsType> {
     );
   }
 
-  private saveUser() {
+  private saveEditedUser() {
 
   }
 
@@ -103,19 +103,19 @@ class EditUsers extends React.Component<StateToPropsType> {
 
   }
 
-  private nameChange(firstName: string) {
+  private firstNameChanged(firstName: string) {
 
   }
 
-  private lastNameChange(lastName: string) {
+  private lastNameChanged(lastName: string) {
 
   }
 
-  private emailChange(email: string) {
+  private emailChanged(email: string) {
 
   }
 
-  private phoneChange(phone: string) {
+  private phoneChanged(phone: string) {
 
   }
 

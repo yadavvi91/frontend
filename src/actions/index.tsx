@@ -1,5 +1,13 @@
 import * as constants from '../constants/index';
-import {AddUserAction, AddUsersAction, ListUsersAction, RemoveUsersAction, User} from '../types';
+import {
+  AddUserAction,
+  AddUsersAction,
+  DeleteUserAction,
+  ListUsersAction,
+  RemoveUsersAction,
+  SaveEditedUser,
+  User
+} from '../types';
 
 export function listUsers(): ListUsersAction {
   return {
@@ -26,5 +34,19 @@ export function removeFirstUser(id: number, firstName: string): RemoveUsersActio
     type: constants.REMOVE_USERS,
     id,
     firstName
+  };
+}
+
+export function saveEditedUser(id: number): SaveEditedUser {
+  return {
+    type: constants.SAVE_EDITED_USER,
+    id
+  };
+}
+
+export function deleteUser(id: number): DeleteUserAction {
+  return {
+    type: constants.DELETE_USER,
+    id
   };
 }
