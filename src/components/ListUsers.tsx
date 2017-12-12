@@ -106,6 +106,7 @@ class ListUsers extends React.Component<ListUsersProps & DispatchProps, ListStat
 
   private editUser(id: number) {
     this.props.routerProps.history.push(`/edit/${id}`);
+    this.props.editUser(id);
   }
 }
 

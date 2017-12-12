@@ -1,5 +1,5 @@
-import { ListingUserActions, ListUserState } from '../types';
-import { ADD_USER, ADD_USERS, EDIT_USER, LIST_USERS, REMOVE_USERS } from '../constants';
+import { ListingUserActions, ListUsersState } from '../types';
+import { ADD_USER, ADD_USERS, LIST_USERS, REMOVE_USERS } from '../constants';
 
 const initialState = {
   'users': [
@@ -22,7 +22,7 @@ const initialState = {
   ]
 };
 
-export const listUsers = (state: ListUserState = initialState, action: ListingUserActions): ListUserState => {
+export const listUsers = (state: ListUsersState = initialState, action: ListingUserActions): ListUsersState => {
   switch (action.type) {
     case LIST_USERS:
       return state;
@@ -41,8 +41,6 @@ export const listUsers = (state: ListUserState = initialState, action: ListingUs
         ...state,
         users: action.id === undefined ? [...state.users] : state.users.filter((user) => user.id !== action.id)
       };
-    case EDIT_USER:
-      return state;
     default:
       return state;
   }

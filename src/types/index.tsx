@@ -24,7 +24,7 @@ export interface User {
 
 interface StoreState {}
 
-export interface ListUserState {
+export interface ListUsersState {
   users: Array<User>;
 }
 
@@ -33,7 +33,7 @@ export interface EditUserState {
 }
 
 export interface RootState extends StoreState {
-  listUsersState: ListUserState;
+  listUsersState: ListUsersState;
   editUsersState: EditUserState;
 }
 
@@ -51,11 +51,12 @@ export type RoleNameChangedAction = {type: typeof ROLE_NAME_CHANGED, role: strin
 export type SaveEditedUserAction = {type: typeof SAVE_EDITED_USER, id: number};
 export type DeleteUserAction = {type: typeof DELETE_USER, id: number};
 
+export type TopLevelReducerActions = EditUserAction;
+
 export type ListingUserActions = ListUsersAction
   | AddUserAction
   | AddUsersAction
-  | RemoveUsersAction
-  | EditUserAction;
+  | RemoveUsersAction;
 
 export type EditingUserActions = FirstNameChangedAction
   | LastNameChangedAction

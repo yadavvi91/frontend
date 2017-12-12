@@ -11,9 +11,11 @@ import './index.css';
 import ListUsers from './containers/ListUsers';
 import EditUsers from './containers/EditUsers';
 import { editUsers } from './reducers/EditUserReducer';
+import {topLevelReducer} from './reducers/TopLevelReducer';
 
 const store = createStore<RootState>(
   combineReducers({
+    topLevelReducer,
     listUsersState: listUsers,
     editUsersState: editUsers
   }),
